@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-const DEFAULT_WEBHOOK_URL = '	https://webhook.site/df98d926-c19c-42a7-af34-47b08d8a82c8'; // <- replace this with your webhook URL
+const DEFAULT_WEBHOOK_URL = '	https://webhook.site/df98d926-c19c-42a7-af34-47b08d8a82c8'; 
 
 const ALL_OPTIONS = [
   { label: 'First Name', value: 'first_name' },
@@ -18,7 +18,7 @@ export default function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [segmentName, setSegmentName] = useState('');
   const [mainSelect, setMainSelect] = useState('');
-  const [schemas, setSchemas] = useState([]); // { id, value }
+  const [schemas, setSchemas] = useState([]); 
   const [status, setStatus] = useState(null);
 
   function openModal() {
@@ -38,7 +38,7 @@ export default function App() {
   function handleAddSchema(e) {
     e.preventDefault();
     if (!mainSelect) return;
-    // don't add duplicates
+   
     if (usedValues.includes(mainSelect)) {
       setStatus({ type: 'error', message: 'Schema already added.' });
       return;
@@ -89,7 +89,7 @@ export default function App() {
   }
 
   function availableOptionsForDropdown(currentId) {
-    // For a given dropdown, options = ALL_OPTIONS excluding values selected by other dropdowns
+  
     const otherSelected = schemas.filter(s => s.id !== currentId).map(s => s.value);
     return ALL_OPTIONS.filter(o => !otherSelected.includes(o.value));
   }
